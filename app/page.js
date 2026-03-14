@@ -53,7 +53,6 @@ export default function HomePage() {
 
   return (
     <div className="card">
-      {/* Hero */}
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <div style={{ width: '52px', height: '52px', background: 'var(--accent-dim)', border: '2px solid rgba(124,106,247,0.3)', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
           <svg width="26" height="26" viewBox="0 0 26 26">
@@ -67,7 +66,6 @@ export default function HomePage() {
         <p className="hero-tagline">Serverless P2P chess — no sign-up, no backend.</p>
       </div>
 
-      {/* Features */}
       <div className="feature-grid">
         <div className="feature-item"><Zap size={13} /> Instant Play</div>
         <div className="feature-item"><Shield size={13} /> No Backend</div>
@@ -75,7 +73,6 @@ export default function HomePage() {
         <div className="feature-item"><Smartphone size={13} /> Mobile-First</div>
       </div>
 
-      {/* Play buttons */}
       <button className="btn" onClick={() => router.push('/play?mode=offline')}>
         <WifiOff size={17} /> Pass &amp; Play (2 Players)
       </button>

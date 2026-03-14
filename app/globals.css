@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
-/* ============================================
-   CSS VARIABLES
-   ============================================ */
 :root, [data-theme="dark"] {
   --bg: #0d0d0f;
   --bg2: #141417;
@@ -21,10 +18,9 @@
   --green: #4ade80;
   --red: #f87171;
   --yellow: #fbbf24;
-  /* Nav */
   --nav-bg: rgba(10, 10, 13, 0.82);
   --nav-border: rgba(255, 255, 255, 0.07);
-  --nav-h: 62px;          /* bottom nav height on mobile */
+  --nav-h: 62px;
   --header-h: 56px;
   --radius: 16px;
   --radius-sm: 10px;
@@ -54,9 +50,6 @@
   --shadow-sm: 0 2px 12px -2px rgba(0,0,0,0.07);
 }
 
-/* ============================================
-   RESET
-   ============================================ */
 *, *::before, *::after {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -72,9 +65,6 @@ body {
 }
 a { text-decoration: none; color: inherit; }
 
-/* ============================================
-   APP SHELL
-   ============================================ */
 .app {
   display: flex;
   flex-direction: column;
@@ -84,9 +74,6 @@ a { text-decoration: none; color: inherit; }
     var(--bg);
 }
 
-/* ============================================
-   HEADER — glassmorphism
-   ============================================ */
 .header {
   position: sticky;
   top: 0;
@@ -109,13 +96,12 @@ a { text-decoration: none; color: inherit; }
   padding: 0 18px;
 }
 
-/* Logo */
 .logo-wrap {
   display: flex;
   align-items: center;
   gap: 9px;
   flex-shrink: 0;
-  margin-right: auto; /* push nav + toggle to right */
+  margin-right: auto;
 }
 .logo-icon { color: var(--accent); }
 .logo {
@@ -126,9 +112,8 @@ a { text-decoration: none; color: inherit; }
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ---- Desktop nav (inside header) ---- */
 .header-nav {
-  display: none; /* hidden on mobile */
+  display: none;
   align-items: center;
   gap: 2px;
   margin-right: 10px;
@@ -157,7 +142,6 @@ a { text-decoration: none; color: inherit; }
 }
 .header-nav-item svg { flex-shrink: 0; }
 
-/* Theme btn */
 .theme-btn {
   display: flex;
   align-items: center;
@@ -176,15 +160,11 @@ a { text-decoration: none; color: inherit; }
   flex-shrink: 0;
 }
 .theme-btn:hover { border-color: var(--border2); color: var(--text); }
-.theme-label { display: none; } /* hidden on mobile by default */
+.theme-label { display: none; }
 
-/* ============================================
-   SCROLL CONTAINER
-   ============================================ */
 .scroll-container {
   flex: 1;
   overflow-y: auto;
-  /* On mobile: pad bottom for the fixed bottom nav */
   padding: 18px 14px calc(var(--nav-h) + 18px);
   display: flex;
   flex-direction: column;
@@ -195,11 +175,8 @@ a { text-decoration: none; color: inherit; }
   gap: 14px;
 }
 
-/* ============================================
-   BOTTOM NAV — mobile only, icons only
-   ============================================ */
 .bottom-nav {
-  display: flex; /* shown on mobile */
+  display: flex;
   position: fixed;
   bottom: 0;
   left: 0; right: 0;
@@ -212,7 +189,6 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   justify-content: space-around;
   padding: 0 4px;
-  /* iOS home bar */
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -229,7 +205,6 @@ a { text-decoration: none; color: inherit; }
 .bottom-nav-item:active { transform: scale(0.88); }
 .bottom-nav-item.active { color: var(--accent); }
 
-/* Active indicator dot */
 .bottom-nav-item.active::after {
   content: '';
   position: absolute;
@@ -256,7 +231,6 @@ a { text-decoration: none; color: inherit; }
   background: var(--accent-dim);
 }
 
-/* Play icon gets a subtle pill always */
 .bottom-nav-item.play-item .bottom-nav-icon {
   background: var(--accent-dim);
   border: 1px solid rgba(124,106,247,0.2);
@@ -266,9 +240,6 @@ a { text-decoration: none; color: inherit; }
   border-color: rgba(124,106,247,0.4);
 }
 
-/* ============================================
-   CARD
-   ============================================ */
 .card {
   background: var(--surface);
   backdrop-filter: blur(16px);
@@ -281,9 +252,6 @@ a { text-decoration: none; color: inherit; }
   animation: fadeUp 0.28s ease both;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
 .btn {
   background: var(--accent);
   color: #fff;
@@ -321,9 +289,6 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-ghost:hover { background: var(--surface2); color: var(--text); opacity: 1; }
 
-/* ============================================
-   BOARD
-   ============================================ */
 .board-wrap {
   width: 100%;
   aspect-ratio: 1/1;
@@ -335,9 +300,6 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-/* ============================================
-   PROMOTION MODAL
-   ============================================ */
 .promo-modal {
   position: absolute;
   inset: 0;
@@ -363,9 +325,6 @@ a { text-decoration: none; color: inherit; }
 }
 .promo-btn:hover { border-color: var(--accent); background: var(--accent-dim); }
 
-/* ============================================
-   MODAL OVERLAY
-   ============================================ */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -378,15 +337,9 @@ a { text-decoration: none; color: inherit; }
   padding: 20px;
 }
 
-/* ============================================
-   CAPTURED PIECES
-   ============================================ */
 .captured-row { display: flex; height: 22px; gap: 1px; width: 100%; opacity: 0.75; }
 .piece-symbol { font-size: 1rem; }
 
-/* ============================================
-   THEME TOGGLE (legacy settings)
-   ============================================ */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -404,9 +357,6 @@ a { text-decoration: none; color: inherit; }
 }
 .theme-toggle:hover { border-color: var(--border2); color: var(--text); }
 
-/* ============================================
-   STAT CARDS
-   ============================================ */
 .stat-card {
   background: var(--surface2);
   padding: 14px;
@@ -430,9 +380,6 @@ a { text-decoration: none; color: inherit; }
   text-transform: uppercase;
 }
 
-/* ============================================
-   BOT SELECT
-   ============================================ */
 .bot-select-btn {
   background: var(--surface2);
   border: 1.5px solid var(--border);
@@ -449,9 +396,6 @@ a { text-decoration: none; color: inherit; }
 .bot-select-btn:hover { border-color: var(--border2); background: var(--accent-dim); }
 .bot-select-btn.selected { border-color: var(--accent); background: var(--accent-dim); }
 
-/* ============================================
-   HOME
-   ============================================ */
 .hero-tagline {
   font-size: 0.87rem;
   color: var(--text2);
@@ -479,9 +423,6 @@ a { text-decoration: none; color: inherit; }
 .feature-item svg { flex-shrink: 0; color: var(--accent); }
 .divider { width: 100%; height: 1px; background: var(--border); margin: 12px 0; }
 
-/* ============================================
-   SETTING ROWS
-   ============================================ */
 .setting-row {
   display: flex;
   justify-content: space-between;
@@ -512,9 +453,6 @@ a { text-decoration: none; color: inherit; }
 }
 .setting-value:hover { background: var(--accent-dim); }
 
-/* ============================================
-   PROFILE
-   ============================================ */
 .profile-avatar {
   width: 58px; height: 58px;
   background: var(--accent-dim);
@@ -538,9 +476,6 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid rgba(124,106,247,0.2);
 }
 
-/* ============================================
-   ABOUT / DEV CARD
-   ============================================ */
 .dev-card {
   background: var(--surface2);
   padding: 16px;
@@ -585,43 +520,22 @@ a { text-decoration: none; color: inherit; }
 .changelog-item:last-child { border-bottom: none; }
 .changelog-item svg { flex-shrink: 0; margin-top: 2px; color: var(--accent); }
 
-/* Footer — replaced by bottom nav */
 .footer { display: none; }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================ */
-
-/* ---- MOBILE (default, < 768px) ----
-   • Bottom nav visible
-   • Header nav hidden
-   • theme-label hidden
-   • small paddings
-*/
-
-/* ---- TABLET + DESKTOP (≥ 768px) ---- */
 @media (min-width: 768px) {
-  /* Show desktop nav in header */
   .header-nav { display: flex; }
 
-  /* Wider header */
   .header-inner { padding: 0 24px; }
 
-  /* Show theme label */
   .theme-label { display: inline; }
 
-  /* Hide bottom nav completely */
   .bottom-nav { display: none; }
 
-  /* Remove bottom padding for bottom nav */
   .scroll-container {
     padding: 24px 20px 30px;
     max-width: 700px;
@@ -632,7 +546,6 @@ a { text-decoration: none; color: inherit; }
   .stat-value { font-size: 1.8rem; }
 }
 
-/* ---- Small phones (≤ 380px) ---- */
 @media (max-width: 380px) {
   .header-inner { padding: 0 14px; }
   .logo { font-size: 0.9rem; }
@@ -643,7 +556,6 @@ a { text-decoration: none; color: inherit; }
   .feature-item { font-size: 0.74rem; padding: 9px 10px; }
 }
 
-/* ---- Landscape phone ---- */
 @media (max-height: 500px) and (orientation: landscape) {
   .board-wrap { max-height: 78vw; }
   .header { height: 44px; }

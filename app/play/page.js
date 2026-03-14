@@ -25,7 +25,6 @@ function PlayGame() {
   const [timers, setTimers] = useState({ w: timeSettings, b: timeSettings });
   const [gameStarted, setGameStarted] = useState(false);
 
-  // Online state
   const [peerId, setPeerId] = useState(null);
   const [conn, setConn] = useState(null);
   const [status, setStatus] = useState('idle');
@@ -38,10 +37,8 @@ function PlayGame() {
   const timerRef = useRef(null);
   const connRef = useRef(null);
 
-  // Keep connRef in sync
   useEffect(() => { connRef.current = conn; }, [conn]);
 
-  // AI piece values
   const pieceValues = { p: 100, n: 320, b: 330, r: 500, q: 900, k: 20000 };
 
   const evaluateBoard = useCallback((chess) => {
@@ -93,13 +90,11 @@ function PlayGame() {
     }
   }, [evaluateBoard]);
 
-  // Execute move
   const executeMove = useCallback((moveObj) => {
     setGame(g => {
       const copy = new Chess(g.fen());
       const result = copy.move(moveObj);
       if (result) {
-        // Update captured
         const history = copy.history({ verbose: true });
         const w = [], b = [];
         history.forEach(m => {
@@ -107,7 +102,6 @@ function PlayGame() {
         });
         setCaptured({ w, b });
 
-        // Check game over
         if (copy.isGameOver()) {
           if (copy.isCheckmate()) {
             const res = copy.turn() === 'w' ? 'Black Wins' : 'White Wins';
@@ -136,7 +130,6 @@ function PlayGame() {
     });
   }, [mode, playSound, setStats]);
 
-  // AI move
   const makeAiMove = useCallback(() => {
     setGame(currentGame => {
       const moves = currentGame.moves({ verbose: true });
@@ -195,7 +188,6 @@ function PlayGame() {
     });
   }, [botLevel, minimax, playSound, setStats]);
 
-  // AI auto-move
   useEffect(() => {
     if (mode === 'ai' && game.turn() === 'b' && !winner && !showPromotion) {
       const timeout = setTimeout(makeAiMove, botLevel === 1 ? 400 : 800);
@@ -203,7 +195,6 @@ function PlayGame() {
     }
   }, [game, mode, winner, showPromotion, botLevel, makeAiMove]);
 
-  // Timer
   useEffect(() => {
     if (timerEnabled && gameStarted && !winner) {
       timerRef.current = setInterval(() => {
@@ -223,7 +214,6 @@ function PlayGame() {
 
   const formatTime = (s) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
 
-  // Online PeerJS
   const setupConn = useCallback((c) => {
     setConn(c);
     c.on('data', (d) => {
@@ -277,7 +267,6 @@ function PlayGame() {
     });
   }
 
-  // Init online on mount
   useEffect(() => {
     if (mode === 'online') {
       initPeer(joinId);
@@ -295,7 +284,6 @@ function PlayGame() {
     if (mode === 'online' && connRef.current) connRef.current.send({ type: 'reset' });
   }
 
-  // Move handling
   function getMoveOptions(square) {
     const moves = game.moves({ square, verbose: true });
     if (moves.length === 0) return false;

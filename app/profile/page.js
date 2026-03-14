@@ -10,7 +10,6 @@ export default function ProfilePage() {
 
   return (
     <div className="card">
-      {/* Avatar + name */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
         <div className="profile-avatar">
           <User size={24} />
@@ -22,7 +21,6 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Win rate bar */}
       {total > 0 && (
         <div style={{ marginBottom: '18px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
@@ -35,7 +33,6 @@ export default function ProfilePage() {
         </div>
       )}
 
-      {/* Stats */}
       <h3 style={{ color: 'var(--text3)', margin: '0 0 10px 0', fontSize: '0.75rem', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
         <BarChart3 size={13} /> Game Stats
       </h3>
@@ -54,7 +51,6 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Theme */}
       <div className="setting-row">
         <span className="setting-label">
           {darkMode ? <Moon size={15} /> : <Sun size={15} />} Theme
