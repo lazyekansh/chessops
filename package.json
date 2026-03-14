@@ -1,0 +1,21 @@
+{
+  "name": "lazy-chess-ultimate",
+  "version": "2.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "chess.js": "^1.0.0-beta.8",
+    "lucide-react": "^0.344.0",
+    "next": "14.1.0",
+    "next-pwa": "^5.6.0",
+    "peerjs": "^1.5.2",
+    "react": "^18",
+    "react-chessboard": "^4.4.0",
+    "react-dom": "^18"
+  }
+}
