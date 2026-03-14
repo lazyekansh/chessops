@@ -20,7 +20,6 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        {/* Logo */}
         <Link href="/" style={{ textDecoration: 'none' }}>
           <div className="logo-wrap">
             <svg width="20" height="20" viewBox="0 0 24 24" className="logo-icon">
@@ -33,7 +32,6 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Desktop nav — hidden on mobile via CSS */}
         <nav className="header-nav">
           {navItems.map(({ href, label, icon: Icon }) => {
             const isPlay = href.startsWith('/play');
@@ -51,7 +49,6 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Theme toggle */}
         <button
           className="theme-btn"
           onClick={() => setDarkMode(!darkMode)}
